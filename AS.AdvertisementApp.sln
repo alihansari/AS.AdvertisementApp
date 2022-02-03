@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AS.AdvertisementApp.Common", "AS.AdvertisementApp.Common\AS.AdvertisementApp.Common.csproj", "{47303090-21B1-4DDB-A660-B37574D208D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AS.AdvertisementApp.Common", "AS.AdvertisementApp.Common\AS.AdvertisementApp.Common.csproj", "{47303090-21B1-4DDB-A660-B37574D208D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AS.AdvertisementApp.Entities", "AS.AdvertisementApp.Entities\AS.AdvertisementApp.Entities.csproj", "{FEC8E9EF-8784-4CEF-B3D8-AC7CB4EE1F23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{47303090-21B1-4DDB-A660-B37574D208D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47303090-21B1-4DDB-A660-B37574D208D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47303090-21B1-4DDB-A660-B37574D208D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEC8E9EF-8784-4CEF-B3D8-AC7CB4EE1F23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEC8E9EF-8784-4CEF-B3D8-AC7CB4EE1F23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEC8E9EF-8784-4CEF-B3D8-AC7CB4EE1F23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEC8E9EF-8784-4CEF-B3D8-AC7CB4EE1F23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
