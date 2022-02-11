@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AS.AdvertisementApp.Common\AS.AdvertisementApp.Common.csproj" />
     <ProjectReference Include="..\AS.AdvertisementApp.Entities\AS.AdvertisementApp.Entities.csproj" />
   </ItemGroup>
 
