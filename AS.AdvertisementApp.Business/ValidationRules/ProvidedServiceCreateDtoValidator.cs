@@ -1,4 +1,4 @@
-﻿using AS.AdvertisementApp.Dtos.ProvidedServiceDtos;
+﻿using AS.AdvertisementApp.Dtos;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
