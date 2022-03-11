@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AS.AdvertisementApp.Dtos.ProvidedServiceDtos
+namespace AS.AdvertisementApp.Dtos
 {
     public class ProvidedServiceCreateDto:IDto
     {

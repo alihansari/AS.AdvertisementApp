@@ -8,14 +8,12 @@ using System.Threading.Tasks;
 
 namespace AS.AdvertisementApp.Business.ValidationRules
 {
-    class ProvidedServiceUpdateDtoValidator : AbstractValidator<ProvidedServiceUpdateDto>
+    public class AdvertisementCreateDtoValidator:AbstractValidator<AdvertisementCreateDto>
     {
-        public ProvidedServiceUpdateDtoValidator()
+        public AdvertisementCreateDtoValidator()
         {
-            RuleFor(x => x.Id).NotEmpty();
-            RuleFor(x => x.Description).NotEmpty();
             RuleFor(x => x.Title).NotEmpty();
-            RuleFor(x => x.ImagePath).NotEmpty();
+            RuleFor(x => x.Description).NotEmpty();
         }
     }
 }
