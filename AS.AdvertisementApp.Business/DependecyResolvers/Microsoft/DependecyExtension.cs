@@ -28,8 +28,10 @@ namespace AS.AdvertisementApp.Business.DependecyResolvers.Microsoft
             });
             var mapperConfiguration = new MapperConfiguration(opt =>
             {
+                opt.AddProfile(new GenderProfile());
                 opt.AddProfile(new ProvidedServiceProfile());
                 opt.AddProfile(new AdvertisementProfile());
+                opt.AddProfile(new AppUserProfile());
                 //opt.AddProfile();
             });
             var mapper = mapperConfiguration.CreateMapper();
@@ -43,8 +45,17 @@ namespace AS.AdvertisementApp.Business.DependecyResolvers.Microsoft
             services.AddTransient<IValidator<AdvertisementCreateDto>, AdvertisementCreateDtoValidator>();
             services.AddTransient<IValidator<AdvertisementUpdateDto>, AdvertisementUpdateDtoValidator>();
 
+            services.AddTransient<IValidator<AppUserCreateDto>, AppUserCreateDtoValidator>();
+            services.AddTransient<IValidator<AppUserUpdateDto>, AppUserUpdateDtoValidator>();
+
+            services.AddTransient<IValidator<GenderCreateDto>, GenderCreateDtoValidator>();
+            services.AddTransient<IValidator<GenderUpdateDto>, GenderUpdateDtoValidator>();
+
+            services.AddScoped<IProvidedServiceManager, ProvidedServiceManager>();
             services.AddScoped<IProvidedServiceManager, ProvidedServiceManager>();
             services.AddScoped<IAdvertisementManager, AdvertisementManager>();
+            services.AddScoped<IAppUserService, AppUserManager>();
+            services.AddScoped<IGenderService, GenderManager>();
         }
     }
 }
