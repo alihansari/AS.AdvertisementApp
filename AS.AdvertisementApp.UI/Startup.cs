@@ -1,4 +1,10 @@
 using AS.AdvertisementApp.Business.DependecyResolvers.Microsoft;
+using AS.AdvertisementApp.Business.Helpers;
+using AS.AdvertisementApp.UI.Mappings.AutoMapper;
+using AS.AdvertisementApp.UI.Models;
+using AS.AdvertisementApp.UI.ValidationRules;
+using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -26,7 +32,16 @@ namespace AS.AdvertisementApp.UI
         {
             
             services.AddDependencies(Configuration);
+            services.AddTransient<IValidator<UserCreateModel>, UserCreateModelValidator>();
             services.AddControllersWithViews();
+
+            var profiles = ProfileHelper.GetProfiles();
+            profiles.Add(new UserCreateModelProfile());
+
+            var configuration = new MapperConfiguration(opt => { opt.AddProfiles(profiles); });
+
+            var mapper = configuration.CreateMapper();
+            services.AddSingleton(mapper);
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

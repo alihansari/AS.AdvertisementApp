@@ -1,4 +1,5 @@
 ﻿using AS.AdvertisementApp.Dtos;
+using AS.AdvertisementApp.Entities;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
@@ -12,9 +13,9 @@ namespace AS.AdvertisementApp.Business.Mappings.AutoMapper
     {
         public GenderProfile()
         {
-            CreateMap<GenderProfile, GenderListDto>().ReverseMap();
-            CreateMap<GenderProfile, GenderCreateDto>().ReverseMap();
-            CreateMap<GenderProfile, GenderUpdateDto>().ReverseMap();
+            CreateMap<Gender, GenderListDto>().ReverseMap();
+            CreateMap<Gender, GenderCreateDto>().ReverseMap();
+            CreateMap<Gender, GenderUpdateDto>().ReverseMap();
         }
     }
 }

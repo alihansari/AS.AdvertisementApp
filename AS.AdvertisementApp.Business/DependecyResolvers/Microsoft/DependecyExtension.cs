@@ -26,17 +26,6 @@ namespace AS.AdvertisementApp.Business.DependecyResolvers.Microsoft
             {
                 opt.UseSqlServer(configuration.GetConnectionString("Local"));
             });
-            var mapperConfiguration = new MapperConfiguration(opt =>
-            {
-                opt.AddProfile(new GenderProfile());
-                opt.AddProfile(new ProvidedServiceProfile());
-                opt.AddProfile(new AdvertisementProfile());
-                opt.AddProfile(new AppUserProfile());
-                //opt.AddProfile();
-            });
-            var mapper = mapperConfiguration.CreateMapper();
-            services.AddSingleton(mapper);
-
             services.AddScoped<IUow, Uow>();
 
             services.AddTransient<IValidator<ProvidedServiceCreateDto>, ProvidedServiceCreateDtoValidator>();
@@ -56,6 +45,6 @@ namespace AS.AdvertisementApp.Business.DependecyResolvers.Microsoft
             services.AddScoped<IAdvertisementManager, AdvertisementManager>();
             services.AddScoped<IAppUserService, AppUserManager>();
             services.AddScoped<IGenderService, GenderManager>();
-        }
+        }     
     }
 }

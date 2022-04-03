@@ -1,4 +1,5 @@
 ﻿using AS.AdvertisementApp.Dtos;
+using AS.AdvertisementApp.Entities;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
@@ -12,9 +13,9 @@ namespace AS.AdvertisementApp.Business.Mappings.AutoMapper
     {
         public AppUserProfile()
         {
-            CreateMap<AppUserProfile, AppUserListDto>().ReverseMap();
-            CreateMap<AppUserProfile, AppUserUpdateDto>().ReverseMap();
-            CreateMap<AppUserProfile, AppUserCreateDto>().ReverseMap();
+            CreateMap<AppUser, AppUserListDto>().ReverseMap();
+            CreateMap<AppUser, AppUserUpdateDto>().ReverseMap();
+            CreateMap<AppUser, AppUserCreateDto>().ReverseMap();
         }
     }
 }
