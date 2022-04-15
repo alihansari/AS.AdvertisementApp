@@ -40,6 +40,8 @@ namespace AS.AdvertisementApp.Business.DependecyResolvers.Microsoft
             services.AddTransient<IValidator<GenderCreateDto>, GenderCreateDtoValidator>();
             services.AddTransient<IValidator<GenderUpdateDto>, GenderUpdateDtoValidator>();
 
+            services.AddTransient<IValidator<AppUserLoginDto>, AppUserLoginDtoValidator>();
+
             services.AddScoped<IProvidedServiceManager, ProvidedServiceManager>();
             services.AddScoped<IProvidedServiceManager, ProvidedServiceManager>();
             services.AddScoped<IAdvertisementManager, AdvertisementManager>();

@@ -5,16 +5,13 @@ using AS.AdvertisementApp.UI.Models;
 using AS.AdvertisementApp.UI.ValidationRules;
 using AutoMapper;
 using FluentValidation;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AS.AdvertisementApp.UI
 {
@@ -30,9 +27,21 @@ namespace AS.AdvertisementApp.UI
         }
         public void ConfigureServices(IServiceCollection services)
         {
-            
+
             services.AddDependencies(Configuration);
             services.AddTransient<IValidator<UserCreateModel>, UserCreateModelValidator>();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(opt =>
+            {
+                opt.Cookie.Name = "AS.AdvertisementProject";
+                opt.Cookie.HttpOnly = true;
+                opt.Cookie.SameSite = Microsoft.AspNetCore.Http.SameSiteMode.Strict;
+                opt.Cookie.SecurePolicy = Microsoft.AspNetCore.Http.CookieSecurePolicy.SameAsRequest;
+                opt.ExpireTimeSpan = TimeSpan.FromDays(20);
+                opt.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/SignIn");
+                opt.LogoutPath = new Microsoft.AspNetCore.Http.PathString("/Account/LogOut");
+                opt.AccessDeniedPath= new Microsoft.AspNetCore.Http.PathString("/Account/AccessDenied");
+            });
             services.AddControllersWithViews();
 
             var profiles = ProfileHelper.GetProfiles();
@@ -52,6 +61,9 @@ namespace AS.AdvertisementApp.UI
             }
             app.UseStaticFiles();
             app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
