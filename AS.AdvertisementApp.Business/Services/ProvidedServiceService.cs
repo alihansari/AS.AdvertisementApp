@@ -12,9 +12,9 @@ using System.Threading.Tasks;
 
 namespace AS.AdvertisementApp.Business.Services
 {
-    public class ProvidedServiceManager:Service<ProvidedServiceCreateDto, ProvidedServiceUpdateDto, ProvidedServiceListDto, ProvidedService>,IProvidedServiceManager
+    public class ProvidedServiceService:Service<ProvidedServiceCreateDto, ProvidedServiceUpdateDto, ProvidedServiceListDto, ProvidedService>,IProvidedServiceService
     {
-        public ProvidedServiceManager(IMapper mapper,IValidator<ProvidedServiceCreateDto> createDtoValidator,IValidator<ProvidedServiceUpdateDto> updateDtoValidator,IUow uow)
+        public ProvidedServiceService(IMapper mapper,IValidator<ProvidedServiceCreateDto> createDtoValidator,IValidator<ProvidedServiceUpdateDto> updateDtoValidator,IUow uow)
             :base(mapper, createDtoValidator, updateDtoValidator, uow)
         {
 

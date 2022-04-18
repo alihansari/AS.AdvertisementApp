@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AS.AdvertisementApp.Business.Interfaces
 {
-    public interface IProvidedServiceManager : IService<ProvidedServiceCreateDto, ProvidedServiceUpdateDto, ProvidedServiceListDto, ProvidedService>
+    public interface IProvidedServiceService : IService<ProvidedServiceCreateDto, ProvidedServiceUpdateDto, ProvidedServiceListDto, ProvidedService>
     {
     }
 }

@@ -10,9 +10,9 @@ namespace AS.AdvertisementApp.UI.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IProvidedServiceManager _providedServiceManager;
-        private readonly IAdvertisementManager _advertisementManager;
-        public HomeController(IProvidedServiceManager providedServiceManager, IAdvertisementManager advertisementManager)
+        private readonly IProvidedServiceService _providedServiceManager;
+        private readonly IAdvertisementService _advertisementManager;
+        public HomeController(IProvidedServiceService providedServiceManager, IAdvertisementService advertisementManager)
         {
             _providedServiceManager = providedServiceManager;
             _advertisementManager = advertisementManager;

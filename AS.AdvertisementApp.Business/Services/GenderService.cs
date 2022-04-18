@@ -12,9 +12,9 @@ using System.Threading.Tasks;
 
 namespace AS.AdvertisementApp.Business.Services
 {
-    public class GenderManager : Service<GenderCreateDto, GenderUpdateDto, GenderListDto, Gender>, IGenderService
+    public class GenderService : Service<GenderCreateDto, GenderUpdateDto, GenderListDto, Gender>, IGenderService
     {
-        public GenderManager(IMapper mapper, IValidator<GenderCreateDto> createDtoValidator, IValidator<GenderUpdateDto> updateDtoValidator, IUow uow) :
+        public GenderService(IMapper mapper, IValidator<GenderCreateDto> createDtoValidator, IValidator<GenderUpdateDto> updateDtoValidator, IUow uow) :
             base(mapper, createDtoValidator, updateDtoValidator, uow)
         {
 
