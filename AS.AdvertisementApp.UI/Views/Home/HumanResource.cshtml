@@ -15,7 +15,8 @@
                 </h2>
                 <div id="collapse-@Model[i].Id" class="accordion-collapse collapse @(i==0?"show":"")" aria-labelledby="heading-@Model[i].Id" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        @Model[i].Description
+                        @Html.Raw(Model[i].Description)
+
                         <div>
                             @if (User.Identity.IsAuthenticated)
                             {
@@ -24,7 +25,7 @@
                             else
                             {
                                 <div class="alert alert-light text-center">
-                                    Başvuru yapabilmeniz için kayıt olmanız gerekmektedir.<a asp-action="SignIn" asp-controller="Account">Kayıt Ol</a>
+                                    Başvuru yapabilmeniz için giriş yapmış olmanız gerekmektedir.<a asp-action="SignIn" asp-controller="Account">Kayıt Ol</a>
                                 </div>
                             }
                         </div>
