@@ -65,7 +65,7 @@ namespace AS.AdvertisementApp.Business.Services
             var roles = await _uow.GetRepository<AppRole>().GetAllAsync(x => x.AppUserRoles.Any(x => x.AppUserId == userId));
             if (roles == null)
             {
-                return new Response<List<AppRoleListDto>>(ResponseType.NotFound, "ilgili rol bulnamadı");
+                return new Response<List<AppRoleListDto>>(ResponseType.NotFound, "ilgili rol bulunamadı");
             }
             var dto = _mapper.Map<List<AppRoleListDto>>(roles);
             return new Response<List<AppRoleListDto>>(ResponseType.Success, dto);
