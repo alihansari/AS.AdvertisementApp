@@ -23,7 +23,7 @@ namespace AS.AdvertisementApp.Common
     public enum ResponseType
     {
         Success,
-        ValidataionError,
+        ValidationError,
         NotFound
     }
 }

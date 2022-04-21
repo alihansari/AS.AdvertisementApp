@@ -15,9 +15,9 @@ namespace AS.AdvertisementApp.UI.Extensions
             {
                 return controller.NotFound();
             }
-            if (response.ResponseType==ResponseType.ValidataionError)
+            if (response.ResponseType==ResponseType.ValidationError)
             {
-                foreach (var error in response.ValidataionErrors)
+                foreach (var error in response.ValidationErrors)
                 {
                     controller.ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
                 }

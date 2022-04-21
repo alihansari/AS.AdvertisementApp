@@ -75,9 +75,9 @@ namespace AS.AdvertisementApp.UI.Controllers
             dto.MilitaryStatusId = model.MilitaryStatusId;
             dto.WorkExperience = model.WorkExperience;
             var response = await _advertisementAppUserService.CreateAsync(dto);
-            if (response.ResponseType == Common.ResponseType.ValidataionError)
+            if (response.ResponseType == Common.ResponseType.ValidationError)
             {
-                foreach (var error in response.ValidataionErrors)
+                foreach (var error in response.ValidationErrors)
                 {
                     ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
                 }
