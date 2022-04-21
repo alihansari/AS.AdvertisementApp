@@ -58,7 +58,7 @@ namespace AS.AdvertisementApp.Business.Services
                 }
                 return new Response<AppUserListDto>(ResponseType.NotFound, "Kullanıcı adı veya şifre hatalı");
             }
-            return new Response<AppUserListDto>(ResponseType.ValidataionError, "Kullanıcı adı veya şifre boş olamaz");
+            return new Response<AppUserListDto>(ResponseType.ValidationError, "Kullanıcı adı veya şifre boş olamaz");
         }
         public async Task<IResponse<List<AppRoleListDto>>> GetRolesByUserUdAsync(int userId)
         {
