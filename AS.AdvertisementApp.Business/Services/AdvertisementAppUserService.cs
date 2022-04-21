@@ -1,11 +1,13 @@
 ﻿using AS.AdvertisementApp.Business.Extensions;
 using AS.AdvertisementApp.Business.Interfaces;
 using AS.AdvertisementApp.Common;
+using AS.AdvertisementApp.Common.Enums;
 using AS.AdvertisementApp.DataAccess.UnitOfWork;
 using AS.AdvertisementApp.Dtos;
 using AS.AdvertisementApp.Entities;
 using AutoMapper;
 using FluentValidation;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +45,20 @@ namespace AS.AdvertisementApp.Business.Services
                 return new Response<AdvertisementAppUserCreateDto>(dto, errors);
             }
             return new Response<AdvertisementAppUserCreateDto>(dto, result.ConvertToCustomValidationError());
+        }
+        public async Task<List<AdvertisementAppUserListDto>> GetList(AdvertisementAppUserStatusType type)
+        {
+            var query = _uow.GetRepository<AdvertisementAppUser>().GetQuery();
+            var list = await query.Include(x => x.Advertisement).Include(x => x.AdvertisementAppUserStatus).Include(x => x.MilitaryStatus).Include(x => x.AppUser).ThenInclude(x => x.Gender)
+                 .Where(x => x.AdvertisementAppUserStatusId == (int)type).ToListAsync();
+            return _mapper.Map<List<AdvertisementAppUserListDto>>(list);
+        }
+        public async Task SetStatusAsync(int advertisementAppUserId, AdvertisementAppUserStatusType type)
+        {
+            var query = _uow.GetRepository<AdvertisementAppUser>().GetQuery();
+            var entity = await query.SingleOrDefaultAsync(x => x.Id == advertisementAppUserId);
+            entity.AdvertisementAppUserStatusId = (int)type;
+            await _uow.SaveChangesAsync();
         }
     }
 }
