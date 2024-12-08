@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AS.AdvertisementApp.DataAccess.Migrations
 {
     [DbContext(typeof(AdvertisementContext))]
-    [Migration("20220404115750_DataAdded")]
+    [Migration("20241208075014_DataAdded")]
     partial class DataAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -220,6 +220,18 @@ namespace AS.AdvertisementApp.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Genders");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Definition = "Man"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Definition = "Woman"
+                        });
                 });
 
             modelBuilder.Entity("AS.AdvertisementApp.Entities.MilitaryStatus", b =>

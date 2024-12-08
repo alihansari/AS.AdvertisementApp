@@ -9,11 +9,24 @@ using System.Threading.Tasks;
 
 namespace AS.AdvertisementApp.DataAccess.Configurations
 {
-    public class GenderConfiguration : IEntityTypeConfiguration<Gender>
-    {
-        public void Configure(EntityTypeBuilder<Gender> builder)
-        {
-            builder.Property(x => x.Definition).HasMaxLength(300).IsRequired();
-        }
-    }
+	public class GenderConfiguration : IEntityTypeConfiguration<Gender>
+	{
+		public void Configure(EntityTypeBuilder<Gender> builder)
+		{
+			builder.Property(x => x.Definition).HasMaxLength(300).IsRequired();
+			builder.HasData(new Gender[]
+				{
+					new Gender()
+					{
+						Definition="Man",
+						Id=1,
+					},
+					new Gender()
+					{
+						Definition="Woman",
+						Id=2
+					}
+				});
+		}
+	}
 }

@@ -218,6 +218,18 @@ namespace AS.AdvertisementApp.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Genders");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Definition = "Man"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Definition = "Woman"
+                        });
                 });
 
             modelBuilder.Entity("AS.AdvertisementApp.Entities.MilitaryStatus", b =>
